@@ -2,8 +2,8 @@
 // Replace localStorage with API calls
 
 const API_CONFIG = {
-    baseUrl: 'https://cloudslate-api.your-subdomain.workers.dev', // Update with your Worker URL
-    token: 'your-secret-token-change-this', // Update with your ADMIN_TOKEN
+    baseUrl: 'https://cloudslate-api.cloudslate.workers.dev',
+    token: 'IjgECbOqwUBtamvo964f1zlTiYh2pDFS',
 };
 
 // Helper function for API calls

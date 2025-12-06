@@ -33,7 +33,14 @@ function applyTheme(theme) {
 function updateThemeIcon(theme) {
     const icons = document.querySelectorAll('#theme-icon');
     icons.forEach(icon => {
-        if (icon) {
+        if (icon && window.Icons) {
+            if (theme === 'dark') {
+                icon.innerHTML = `<span class="icon-wrapper icon-lg icon-sun">${Icons.sun}</span>`;
+            } else {
+                icon.innerHTML = `<span class="icon-wrapper icon-lg icon-moon">${Icons.moon}</span>`;
+            }
+        } else if (icon) {
+            // Fallback to emoji if icons not loaded
             icon.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
     });

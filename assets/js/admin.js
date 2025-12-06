@@ -245,11 +245,11 @@ async function loadPosts() {
                 ${post.featured ? '<span class="text-green-600">✓</span>' : '<span class="text-gray-400">-</span>'}
             </td>
             <td class="px-6 py-4">
-                <button onclick="editPost('${post.id}')" class="action-btn bg-blue-600 text-white hover:bg-blue-700">
-                    Edit
+                <button onclick="editPost('${post.id}')" class="icon-button action-btn bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2">
+                    <span class="icon-wrapper icon-sm icon-edit">${Icons.edit}</span> Edit
                 </button>
-                <button onclick="deletePost('${post.id}')" class="action-btn bg-red-600 text-white hover:bg-red-700">
-                    Delete
+                <button onclick="deletePost('${post.id}')" class="icon-button action-btn bg-red-600 text-white hover:bg-red-700 flex items-center gap-2">
+                    <span class="icon-wrapper icon-sm icon-delete">${Icons.delete}</span> Delete
                 </button>
             </td>
         </tr>

@@ -20,30 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Get posts from storage or config
-function getBlogPosts() {
-    // Check if admin has saved posts in localStorage
-    const savedPosts = localStorage.getItem('cloudslate_admin_posts');
-    if (savedPosts) {
-        try {
-            return JSON.parse(savedPosts);
-        } catch (e) {
-            console.error('Error parsing saved posts:', e);
-        }
-    }
-    // Fallback to config.js posts
-    return BLOG_POSTS || [];
-}
-
 // Load and display posts
-function loadPosts() {
+async function loadPosts() {
     const postsContainer = document.getElementById('posts-container');
     const featuredContainer = document.getElementById('featured-posts');
     
     if (!postsContainer || !featuredContainer) return;
     
-    // Get posts from storage or config
-    const posts = getBlogPosts();
+    // Get posts from API (with fallback)
+    const posts = await getBlogPosts();
     
     // Get featured posts
     const featuredPosts = posts
@@ -56,6 +41,13 @@ function loadPosts() {
     // Display all posts
     const allPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     postsContainer.innerHTML = allPosts.map(post => createPostCard(post)).join('');
+    
+    // Re-animate newly loaded content
+    if (window.visualEffects && window.visualEffects.reanimateContent) {
+        setTimeout(() => {
+            window.visualEffects.reanimateContent();
+        }, 100);
+    }
 }
 
 // Create post card HTML
@@ -92,11 +84,11 @@ function createPostCard(post) {
 }
 
 // Load categories
-function loadCategories() {
+async function loadCategories() {
     const categoriesContainer = document.getElementById('categories-container');
     if (!categoriesContainer) return;
     
-    const posts = getBlogPosts();
+    const posts = await getBlogPosts();
     const categories = [...new Set(posts.map(post => post.category))];
     
     categoriesContainer.innerHTML = categories.map(category => `
@@ -110,17 +102,24 @@ function loadCategories() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryFilter = urlParams.get('category');
     if (categoryFilter) {
-        filterByCategory(categoryFilter);
+        await filterByCategory(categoryFilter);
     }
 }
 
 // Filter posts by category
-function filterByCategory(category) {
-    const posts = getBlogPosts();
+async function filterByCategory(category) {
+    const posts = await getBlogPosts();
     const filteredPosts = posts.filter(post => post.category === category);
     const postsContainer = document.getElementById('posts-container');
     if (postsContainer) {
         postsContainer.innerHTML = filteredPosts.map(post => createPostCard(post)).join('');
+        
+        // Re-animate filtered content
+        if (window.visualEffects && window.visualEffects.reanimateContent) {
+            setTimeout(() => {
+                window.visualEffects.reanimateContent();
+            }, 100);
+        }
     }
 }
 

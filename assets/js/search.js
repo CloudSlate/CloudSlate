@@ -14,41 +14,28 @@ function setupSearch() {
         const query = e.target.value.trim().toLowerCase();
         
         // Debounce search
-        searchTimeout = setTimeout(() => {
+        searchTimeout = setTimeout(async () => {
             if (query.length > 0) {
-                performSearch(query);
+                await performSearch(query);
             } else {
-                resetSearch();
+                await resetSearch();
             }
         }, 300);
     });
     
     // Handle Enter key
-    searchInput.addEventListener('keypress', function(e) {
+    searchInput.addEventListener('keypress', async function(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
             const query = e.target.value.trim().toLowerCase();
             if (query.length > 0) {
-                performSearch(query);
+                await performSearch(query);
             }
         }
     });
 }
 
-// Get posts from storage or config
-function getBlogPosts() {
-    const savedPosts = localStorage.getItem('cloudslate_admin_posts');
-    if (savedPosts) {
-        try {
-            return JSON.parse(savedPosts);
-        } catch (e) {
-            console.error('Error parsing saved posts:', e);
-        }
-    }
-    return BLOG_POSTS || [];
-}
-
-function performSearch(query) {
+async function performSearch(query) {
     const postsContainer = document.getElementById('posts-container');
     const featuredContainer = document.getElementById('featured-posts');
     
@@ -59,8 +46,8 @@ function performSearch(query) {
         featuredContainer.style.display = 'none';
     }
     
-    // Get posts from storage or config
-    const posts = getBlogPosts();
+    // Get posts from API (with fallback)
+    const posts = await getBlogPosts();
     
     // Search in title, excerpt, content, tags, and category
     const results = posts.filter(post => {
@@ -84,13 +71,20 @@ function performSearch(query) {
         `;
     } else {
         postsContainer.innerHTML = results.map(post => createPostCard(post)).join('');
+        
+        // Re-animate search results
+        if (window.visualEffects && window.visualEffects.reanimateContent) {
+            setTimeout(() => {
+                window.visualEffects.reanimateContent();
+            }, 100);
+        }
     }
     
     // Update page title
     document.title = `Search: ${query} - ${BLOG_CONFIG.name}`;
 }
 
-function resetSearch() {
+async function resetSearch() {
     const postsContainer = document.getElementById('posts-container');
     const featuredContainer = document.getElementById('featured-posts');
     
@@ -102,9 +96,16 @@ function resetSearch() {
     }
     
     // Reload all posts
-    const posts = getBlogPosts();
+    const posts = await getBlogPosts();
     const allPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     postsContainer.innerHTML = allPosts.map(post => createPostCard(post)).join('');
+    
+    // Re-animate reset content
+    if (window.visualEffects && window.visualEffects.reanimateContent) {
+        setTimeout(() => {
+            window.visualEffects.reanimateContent();
+        }, 100);
+    }
     
     // Reset page title
     document.title = `${BLOG_CONFIG.name} - Tech Blog & Tutorials`;

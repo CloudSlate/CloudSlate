@@ -1,0 +1,458 @@
+/* Modern Icon Styles with Animations */
+
+/* Base Icon Styles */
+.icon {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    vertical-align: middle;
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Icon Sizes */
+.icon-xs {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+.icon-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-md {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.icon-lg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.icon-xl {
+    width: 2rem;
+    height: 2rem;
+}
+
+.icon-2xl {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* ============================================
+   ICON ANIMATIONS
+   ============================================ */
+
+/* Hover Scale Animation */
+.icon-hover {
+    transform: scale(1.2);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Rotate Animation */
+.icon-rotate {
+    transition: transform 0.3s ease;
+}
+
+.icon-rotate:hover {
+    transform: rotate(180deg);
+}
+
+.icon-rotate-360:hover {
+    transform: rotate(360deg);
+}
+
+/* Pulse Animation */
+.icon-pulse {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+/* Bounce Animation */
+.icon-bounce {
+    animation: iconBounce 1s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Shake Animation */
+.icon-shake:hover {
+    animation: iconShake 0.5s ease-in-out;
+}
+
+@keyframes iconShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+    75% {
+        transform: translateX(5px) rotate(5deg);
+    }
+}
+
+/* Spin Animation */
+.icon-spin {
+    animation: iconSpin 1s linear infinite;
+}
+
+.icon-spin-slow {
+    animation: iconSpin 3s linear infinite;
+}
+
+@keyframes iconSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fade In Animation */
+.icon-wrapper {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.icon-wrapper.icon-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Slide In Animation */
+.icon-slide-in-left {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.icon-slide-in-left.icon-visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.icon-slide-in-right {
+    transform: translateX(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.icon-slide-in-right.icon-visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Glow Effect */
+.icon-glow {
+    filter: drop-shadow(0 0 4px currentColor);
+    transition: filter 0.3s ease;
+}
+
+.icon-glow:hover {
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Color Change on Hover */
+.icon-color-shift {
+    transition: color 0.3s ease;
+}
+
+.icon-color-shift:hover {
+    color: #3b82f6;
+}
+
+/* ============================================
+   SPECIFIC ICON ANIMATIONS
+   ============================================ */
+
+/* Settings Icon - Rotate on Hover */
+.icon-settings {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-settings:hover {
+    transform: rotate(90deg);
+}
+
+/* Sun/Moon Icons - Rotate */
+.icon-sun {
+    transition: transform 0.3s ease;
+}
+
+.icon-sun:hover {
+    transform: rotate(180deg);
+}
+
+.icon-moon {
+    transition: transform 0.3s ease;
+}
+
+.icon-moon:hover {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+/* Plus Icon - Rotate to X */
+.icon-plus {
+    transition: transform 0.3s ease;
+}
+
+.icon-plus:hover {
+    transform: rotate(90deg);
+}
+
+/* Arrow Icons - Slide Animation */
+.icon-arrow-right {
+    transition: transform 0.3s ease;
+}
+
+.icon-arrow-right:hover {
+    transform: translateX(3px);
+}
+
+.icon-arrow-left {
+    transition: transform 0.3s ease;
+}
+
+.icon-arrow-left:hover {
+    transform: translateX(-3px);
+}
+
+/* Search Icon - Pulse on Focus */
+.icon-search {
+    transition: transform 0.3s ease;
+}
+
+.icon-search:hover {
+    transform: scale(1.1);
+}
+
+/* Edit Icon - Pencil Animation */
+.icon-edit {
+    transition: transform 0.3s ease;
+}
+
+.icon-edit:hover {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+/* Delete Icon - Shake on Hover */
+.icon-delete {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-delete:hover {
+    color: #ef4444;
+    animation: iconShake 0.5s ease-in-out;
+}
+
+/* Dashboard Icon - Pulse */
+.icon-dashboard:hover {
+    animation: iconPulse 1s ease-in-out infinite;
+}
+
+/* Document Icon - Scale */
+.icon-document:hover {
+    transform: scale(1.15);
+}
+
+/* Tag Icon - Bounce */
+.icon-tag:hover {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+/* Social Icons - Scale and Glow */
+.icon-twitter:hover,
+.icon-facebook:hover,
+.icon-linkedin:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* Copy Icon - Check Animation */
+.icon-copy {
+    position: relative;
+}
+
+.icon-copy.copied::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #10b981;
+    font-weight: bold;
+    animation: iconFadeIn 0.3s ease;
+}
+
+@keyframes iconFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Lock Icon - Shake on Error */
+.icon-lock.error {
+    animation: iconShake 0.5s ease-in-out;
+    color: #ef4444;
+}
+
+/* Logout Icon - Slide Out */
+.icon-logout:hover {
+    transform: translateX(3px);
+}
+
+/* Check Icon - Scale and Bounce */
+.icon-check {
+    color: #10b981;
+    animation: iconCheckBounce 0.5s ease;
+}
+
+@keyframes iconCheckBounce {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* X Icon - Rotate */
+.icon-x:hover {
+    transform: rotate(90deg);
+    color: #ef4444;
+}
+
+/* Calendar Icon - Flip */
+.icon-calendar:hover {
+    transform: perspective(1000px) rotateY(10deg);
+}
+
+/* User Icon - Pulse */
+.icon-user:hover {
+    animation: iconPulse 1s ease-in-out infinite;
+}
+
+/* Clock Icon - Rotate Hands */
+.icon-clock:hover {
+    animation: iconSpin 2s linear infinite;
+}
+
+/* Home Icon - Bounce */
+.icon-home:hover {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+/* ============================================
+   ICON BUTTON STYLES
+   ============================================ */
+
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.icon-button:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transform: scale(1.1);
+}
+
+.icon-button:active {
+    transform: scale(0.95);
+}
+
+.icon-button-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.icon-button-primary:hover {
+    background: #2563eb;
+}
+
+.icon-button-danger {
+    color: #ef4444;
+}
+
+.icon-button-danger:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* ============================================
+   ICON IN TEXT
+   ============================================ */
+
+.icon-inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.25rem;
+}
+
+/* ============================================
+   LOADING ICON
+   ============================================ */
+
+.icon-loading {
+    animation: iconSpin 1s linear infinite;
+    opacity: 0.6;
+}
+
+/* ============================================
+   DARK MODE ICON ADJUSTMENTS
+   ============================================ */
+
+.dark .icon {
+    color: #e5e7eb;
+}
+
+.dark .icon-glow {
+    filter: drop-shadow(0 0 4px rgba(229, 231, 235, 0.5));
+}
+
+.dark .icon-glow:hover {
+    filter: drop-shadow(0 0 8px rgba(229, 231, 235, 0.8));
+}
+
