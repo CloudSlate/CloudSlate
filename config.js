@@ -21,10 +21,10 @@ const BLOG_CONFIG = {
         linkedin: "https://linkedin.com/company/cloudslate"
     },
     
-    // Google AdSense (replace with your actual ad unit IDs)
+    // Google AdSense
     adsense: {
-        enabled: false, // Set to true when you have AdSense approved
-        publisherId: "ca-pub-XXXXXXXXXXXXXXXX", // Your AdSense Publisher ID
+        enabled: true, // Set to true when you have AdSense approved
+        publisherId: "ca-pub-9866065970678838", // Your AdSense Publisher ID
         adUnits: {
             top: "1234567890", // Ad unit ID for top banner
             inlineTop: "1234567891", // Ad unit ID for inline top

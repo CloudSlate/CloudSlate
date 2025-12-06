@@ -14,10 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setupMobileMenu();
     
-    // Initialize AdSense if enabled
-    if (BLOG_CONFIG.adsense && BLOG_CONFIG.adsense.enabled) {
-        loadAdSense();
-    }
+    // AdSense is now handled by adsense.js
 });
 
 // Load and display posts
@@ -184,46 +181,5 @@ function formatDate(dateString) {
     });
 }
 
-// Load Google AdSense
-function loadAdSense() {
-    // Add AdSense script
-    const script = document.createElement('script');
-    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${BLOG_CONFIG.adsense.publisherId}`;
-    script.async = true;
-    script.crossOrigin = "anonymous";
-    document.head.appendChild(script);
-    
-    // Initialize ad units
-    setTimeout(() => {
-        initializeAdUnits();
-    }, 1000);
-}
-
-// Initialize AdSense ad units
-function initializeAdUnits() {
-    const adUnits = [
-        { id: 'adsense-top', adSlot: BLOG_CONFIG.adsense.adUnits.top },
-        { id: 'adsense-inline-top', adSlot: BLOG_CONFIG.adsense.adUnits.inlineTop },
-        { id: 'adsense-inline-bottom', adSlot: BLOG_CONFIG.adsense.adUnits.inlineBottom }
-    ];
-    
-    adUnits.forEach(unit => {
-        const container = document.getElementById(unit.id);
-        if (container) {
-            container.innerHTML = `
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="${BLOG_CONFIG.adsense.publisherId}"
-                     data-ad-slot="${unit.adSlot}"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            `;
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-                console.log('AdSense not ready');
-            }
-        }
-    });
-}
+// AdSense functionality moved to assets/js/adsense.js
 

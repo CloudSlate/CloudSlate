@@ -1,7 +1,41 @@
+# Robots.txt for CloudSlate
+# Optimized for search engine crawling
+
 User-agent: *
 Allow: /
-Disallow: /admin.html
-Disallow: /ADMIN_GUIDE.md
+Allow: /index.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /post.html
+Allow: /assets/
+Allow: /posts/
 
+# Disallow admin and private areas
+Disallow: /admin.html
+Disallow: /admin/
+Disallow: /worker-api/
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /config.js
+
+# Allow Google bots full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /posts/
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Sitemap location
+Sitemap: https://cloudslate.com/sitemap.xml
 Sitemap: https://cloudslate.pages.dev/sitemap.xml
+
+# Allow ads.txt for AdSense
+Allow: /ads.txt
+
+# Crawl delay (optional, remove if not needed)
+# Crawl-delay: 1
 

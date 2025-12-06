@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupNewsletter();
     setupMobileMenu();
     
-    // Initialize AdSense if enabled
-    if (BLOG_CONFIG.adsense.enabled) {
-        loadAdSense();
-    }
+    // AdSense is now handled by adsense.js
 });
 
 // Load post content
@@ -31,6 +28,16 @@ async function loadPost() {
     // Update page title and meta tags
     document.title = `${post.title} - ${BLOG_CONFIG.name}`;
     updateMetaTags(post);
+    
+    // Update breadcrumbs
+    const breadcrumbCategory = document.getElementById('breadcrumb-category');
+    const breadcrumbTitle = document.getElementById('breadcrumb-title');
+    if (breadcrumbCategory) {
+        breadcrumbCategory.innerHTML = `<a href="index.html?category=${encodeURIComponent(post.category)}" class="hover:text-gray-900 dark:hover:text-white">${post.category}</a>`;
+    }
+    if (breadcrumbTitle) {
+        breadcrumbTitle.textContent = post.title;
+    }
     
     // Update post content
     document.getElementById('post-title').textContent = post.title;
@@ -232,44 +239,7 @@ function formatDate(dateString) {
     });
 }
 
-// Load Google AdSense (same as main.js)
-function loadAdSense() {
-    const script = document.createElement('script');
-    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${BLOG_CONFIG.adsense.publisherId}`;
-    script.async = true;
-    script.crossOrigin = "anonymous";
-    document.head.appendChild(script);
-    
-    setTimeout(() => {
-        initializeAdUnits();
-    }, 1000);
-}
-
-function initializeAdUnits() {
-    const adUnits = [
-        { id: 'adsense-inline-top', adSlot: BLOG_CONFIG.adsense.adUnits.inlineTop },
-        { id: 'adsense-inline-bottom', adSlot: BLOG_CONFIG.adsense.adUnits.inlineBottom }
-    ];
-    
-    adUnits.forEach(unit => {
-        const container = document.getElementById(unit.id);
-        if (container) {
-            container.innerHTML = `
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="${BLOG_CONFIG.adsense.publisherId}"
-                     data-ad-slot="${unit.adSlot}"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            `;
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-                console.log('AdSense not ready');
-            }
-        }
-    });
-}
+// AdSense functionality moved to assets/js/adsense.js
 
 // Setup newsletter (same as main.js)
 function setupNewsletter() {
