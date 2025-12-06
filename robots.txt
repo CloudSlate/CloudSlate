@@ -9,6 +9,9 @@ Allow: /contact.html
 Allow: /post.html
 Allow: /assets/
 Allow: /posts/
+Allow: /ads.txt
+Allow: /sitemap.xml
+Allow: /robots.txt
 
 # Disallow admin and private areas
 Disallow: /admin.html
@@ -18,24 +21,24 @@ Disallow: /*.md$
 Disallow: /*.json$
 Disallow: /config.js
 
-# Allow Google bots full access
+# Allow Google bots full access (including AdSense resources)
 User-agent: Googlebot
 Allow: /
+Allow: /ads.txt
+Allow: /sitemap.xml
 
 User-agent: Googlebot-Image
+Allow: /
 Allow: /assets/
 Allow: /posts/
 
 User-agent: Googlebot-Mobile
 Allow: /
 
+# Allow Mediapartners-Google (AdSense crawler)
+User-agent: Mediapartners-Google
+Allow: /
+
 # Sitemap location
 Sitemap: https://cloudslate.com/sitemap.xml
 Sitemap: https://cloudslate.pages.dev/sitemap.xml
-
-# Allow ads.txt for AdSense
-Allow: /ads.txt
-
-# Crawl delay (optional, remove if not needed)
-# Crawl-delay: 1
-

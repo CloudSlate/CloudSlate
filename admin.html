@@ -9,6 +9,15 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Fallback if Tailwind CDN fails
+        if (typeof tailwind === 'undefined') {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css';
+            document.head.appendChild(link);
+        }
+    </script>
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
