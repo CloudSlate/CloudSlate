@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /ADMIN_GUIDE.md
+
+Sitemap: https://cloudslate.pages.dev/sitemap.xml
+

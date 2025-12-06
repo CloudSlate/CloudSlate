@@ -1,0 +1,126 @@
+/* Admin Panel Styles */
+
+.admin-nav-item.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.admin-section {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+}
+
+table thead th {
+    text-align: left;
+}
+
+table tbody td {
+    padding: 1rem 1.5rem;
+}
+
+table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.dark table tbody tr:hover {
+    background-color: #1f2937;
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    margin-right: 0.5rem;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Category Tags */
+.category-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #dbeafe;
+    color: #1e40af;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.dark .category-tag {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success/Error Messages */
+.message {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.message.success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+
+.dark .message.success {
+    background-color: #064e3b;
+    color: #6ee7b7;
+    border-color: #10b981;
+}
+
+.message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.dark .message.error {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+    border-color: #ef4444;
+}
+
+/* Modal Styles */
+#preview-modal {
+    backdrop-filter: blur(4px);
+}
+
+#preview-content {
+    max-height: calc(90vh - 100px);
+    overflow-y: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    aside {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    aside.open {
+        transform: translateX(0);
+    }
+    
+    main {
+        margin-left: 0;
+    }
+}
+

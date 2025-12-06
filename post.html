@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Muhammad Khuhro">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="">
+    <meta property="twitter:description" content="">
+    <meta property="twitter:image" content="">
+    
+    <title>Blog Post - CloudSlate</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Prism.js for code syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-gray-900 dark:text-white">CloudSlate</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Home</a>
+                    <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">About</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Contact</a>
+                    <a href="index.html#categories" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Categories</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 dark:text-gray-300">Home</a>
+                <a href="about.html" class="block py-2 text-gray-700 dark:text-gray-300">About</a>
+                <a href="contact.html" class="block py-2 text-gray-700 dark:text-gray-300">Contact</a>
+                <a href="index.html#categories" class="block py-2 text-gray-700 dark:text-gray-300">Categories</a>
+                <button id="theme-toggle-mobile" class="w-full text-left py-2 text-gray-700 dark:text-gray-300">
+                    Toggle Theme
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Content -->
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm text-gray-600 dark:text-gray-400">
+            <a href="index.html" class="hover:text-gray-900 dark:hover:text-white">Home</a>
+            <span class="mx-2">/</span>
+            <span id="post-category"></span>
+            <span class="mx-2">/</span>
+            <span id="post-title-breadcrumb"></span>
+        </nav>
+
+        <!-- Post Header -->
+        <header class="mb-8">
+            <h1 id="post-title" class="text-4xl md:text-5xl font-bold mb-4"></h1>
+            <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <span id="post-date"></span>
+                <span>•</span>
+                <span id="post-author"></span>
+                <span>•</span>
+                <span id="post-read-time"></span>
+            </div>
+            <div id="post-tags" class="flex flex-wrap gap-2 mb-6">
+                <!-- Tags will be loaded here -->
+            </div>
+        </header>
+
+        <!-- AdSense Placeholder (Top) -->
+        <div class="mb-8 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-center">
+            <p class="text-xs text-gray-500 mb-2">Advertisement</p>
+            <div id="adsense-inline-top" class="min-h-[100px] flex items-center justify-center">
+                <p class="text-sm text-gray-500">AdSense Ad Unit</p>
+            </div>
+        </div>
+
+        <!-- Post Body -->
+        <div id="post-content" class="prose prose-lg dark:prose-invert max-w-none mb-12">
+            <!-- Post content will be loaded here -->
+        </div>
+
+        <!-- Social Sharing -->
+        <div class="border-t border-b border-gray-200 dark:border-gray-700 py-6 my-8">
+            <h3 class="text-lg font-semibold mb-4">Share this post</h3>
+            <div id="social-share" class="flex flex-wrap gap-3">
+                <!-- Social share buttons will be loaded here -->
+            </div>
+        </div>
+
+        <!-- AdSense Placeholder (Bottom) -->
+        <div class="mb-8 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-center">
+            <p class="text-xs text-gray-500 mb-2">Advertisement</p>
+            <div id="adsense-inline-bottom" class="min-h-[100px] flex items-center justify-center">
+                <p class="text-sm text-gray-500">AdSense Ad Unit</p>
+            </div>
+        </div>
+
+        <!-- Related Posts -->
+        <section class="mt-12">
+            <h2 class="text-2xl font-bold mb-6">Related Posts</h2>
+            <div id="related-posts" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Related posts will be loaded here -->
+            </div>
+        </section>
+    </article>
+
+    <!-- Newsletter -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-8 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">Subscribe to Newsletter</h2>
+            <p class="mb-6 text-blue-100">Get the latest posts delivered to your inbox</p>
+            <form id="newsletter-form" class="max-w-md mx-auto">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required
+                           class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
+                    <button type="submit" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">About CloudSlate</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Empowering developers and tech enthusiasts with cutting-edge insights, practical tutorials, and innovative solutions.
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">
+                        Founded by <strong>Muhammad Khuhro</strong>
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-gray-900 dark:hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="hover:text-gray-900 dark:hover:text-white">About</a></li>
+                        <li><a href="contact.html" class="hover:text-gray-900 dark:hover:text-white">Contact</a></li>
+                        <li><a href="index.html#categories" class="hover:text-gray-900 dark:hover:text-white">Categories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li>
+                            <a href="mailto:info.cloudslate@gmail.com" class="hover:text-gray-900 dark:hover:text-white flex items-center gap-2">
+                                <span>📧</span> info.cloudslate@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/923258423208" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-white flex items-center gap-2">
+                                <span>💬</span> +92 325 8423208
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="https://twitter.com/cloudslate" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Twitter</a>
+                        <a href="https://github.com/cloudslate" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">GitHub</a>
+                        <a href="https://linkedin.com/company/cloudslate" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-300 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2024 CloudSlate. All rights reserved. | Created by <strong>Muhammad Khuhro</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/post.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>
+
