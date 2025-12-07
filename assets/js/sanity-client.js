@@ -5,7 +5,7 @@
 
 // Sanity Configuration
 const SANITY_CONFIG = {
-    projectId: 'qtnlujvu', // Your Sanity project ID
+    projectId: 'pdd2xrq9', // Your Sanity project ID
     dataset: 'production',
     apiVersion: '2024-01-01',
     useCdn: true,

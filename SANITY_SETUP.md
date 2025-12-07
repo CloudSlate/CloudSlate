@@ -22,37 +22,35 @@ npm install -g @sanity/cli
 sanity login
 ```
 
-### Step 3: Initialize Sanity Studio
+### Step 3: Initialize Sanity Studio ✅ (Already Done!)
 
-From your project root directory:
+Sanity Studio has been initialized in the `cloudslate-cms` folder.
 
-```bash
-sanity init
-```
-
-**When prompted:**
-- **Project name**: `cloudslate-cms`
-- **Output path**: `./sanity` ⬅️ **Important: Use this exact path**
-- **Template**: Choose "Clean project with no predefined schemas"
+**Project Details:**
+- **Project ID**: `pdd2xrq9`
+- **Project Name**: `cloudslate-cms`
 - **Dataset**: `production`
+- **Location**: `cloudslate-cms/`
 
-### Step 4: Install Dependencies
+### Step 4: Install Dependencies ✅ (Already Done!)
 
-```bash
-cd sanity
-npm install
-```
+Dependencies have been installed automatically during initialization.
 
-### Step 5: Update Configuration
+### Step 5: Configuration ✅ (Already Done!)
 
-The `sanity/sanity.config.js` file is already configured with:
-- ✅ Project ID: `qtnlujvu`
-- ✅ Schema imports from `./schemas`
+The `cloudslate-cms/sanity.config.ts` file is configured with:
+- ✅ Project ID: `pdd2xrq9`
+- ✅ Schema imports from `./schemaTypes`
 - ✅ All necessary plugins
+- ✅ Base path: `/studio`
+
+The blog post schema has been added to `cloudslate-cms/schemaTypes/post.ts`.
 
 ### Step 6: Start Sanity Studio
 
+From the `cloudslate-cms` folder:
 ```bash
+cd cloudslate-cms
 npm run dev
 ```
 
@@ -67,7 +65,9 @@ Studio will be available at: `http://localhost:3333`
 
 Deploy your studio to make it accessible online:
 
+From the `cloudslate-cms` folder:
 ```bash
+cd cloudslate-cms
 npm run deploy
 ```
 
@@ -117,11 +117,12 @@ The frontend is already configured! The `assets/js/sanity-client.js` file:
 
 ```
 CloudSlate/
-├── sanity/                    # Sanity Studio
-│   ├── schemas/
-│   │   ├── post.js           # Blog post schema
-│   │   └── index.js         # Schema exports
-│   ├── sanity.config.js      # Studio configuration
+├── cloudslate-cms/            # Sanity Studio
+│   ├── schemaTypes/
+│   │   ├── post.ts           # Blog post schema (TypeScript)
+│   │   └── index.ts          # Schema exports
+│   ├── sanity.config.ts      # Studio configuration
+│   ├── sanity.cli.ts         # CLI configuration
 │   └── package.json          # Studio dependencies
 ├── assets/
 │   └── js/
@@ -134,8 +135,10 @@ CloudSlate/
 ### Update Project ID
 
 If you need to change the project ID, update it in:
-- `sanity/sanity.config.js`
+- `cloudslate-cms/sanity.config.ts`
 - `assets/js/sanity-client.js`
+
+**Current Project ID**: `pdd2xrq9`
 
 ### CORS Settings
 

@@ -1,25 +1,25 @@
 {
   "name": "cloudslate-cms",
-  "version": "1.0.0",
   "private": true,
-  "description": "CloudSlate CMS - Sanity Studio",
+  "version": "1.0.0",
   "main": "package.json",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
-    "deploy": "sanity deploy"
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
   },
   "keywords": [
-    "sanity",
-    "cms",
-    "cloudslate"
+    "sanity"
   ],
   "dependencies": {
     "@sanity/vision": "^4.20.3",
     "react": "^19.1",
     "react-dom": "^19.1",
-    "sanity": "^4.20.3"
+    "sanity": "^4.20.3",
+    "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.2",
@@ -27,6 +27,11 @@
     "eslint": "^9.28",
     "prettier": "^3.5",
     "typescript": "^5.8"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
   }
 }
-

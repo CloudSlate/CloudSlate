@@ -1,15 +1,17 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'post',
   title: 'Blog Post',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => Rule.required().max(100)
-    },
-    {
+      validation: (Rule) => Rule.required().max(100),
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -17,22 +19,22 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-      validation: Rule => Rule.required()
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
       description: 'Short description for previews (25-160 characters)',
-      validation: Rule => Rule.required().min(25).max(160)
-    },
-    {
+      validation: (Rule) => Rule.required().min(25).max(160),
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
       of: [
         {
-          type: 'block'
+          type: 'block',
         },
         {
           type: 'image',
@@ -40,28 +42,28 @@ export default {
             {
               name: 'alt',
               title: 'Alt Text',
-              type: 'string'
-            }
-          ]
-        }
+              type: 'string',
+            },
+          ],
+        },
       ],
-      validation: Rule => Rule.required()
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'string',
       initialValue: 'Muhammad Khuhro',
-      validation: Rule => Rule.required()
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published Date',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
-      validation: Rule => Rule.required()
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'category',
       title: 'Category',
       type: 'string',
@@ -72,27 +74,27 @@ export default {
           {title: 'Tutorials', value: 'tutorials'},
           {title: 'Technology', value: 'technology'},
           {title: 'DevOps', value: 'devops'},
-          {title: 'Programming', value: 'programming'}
-        ]
+          {title: 'Programming', value: 'programming'},
+        ],
       },
-      validation: Rule => Rule.required()
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
       of: [{type: 'string'}],
       options: {
-        layout: 'tags'
-      }
-    },
-    {
+        layout: 'tags',
+      },
+    }),
+    defineField({
       name: 'featured',
       title: 'Featured Post',
       type: 'boolean',
-      initialValue: false
-    },
-    {
+      initialValue: false,
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Featured Image',
       type: 'image',
@@ -104,18 +106,18 @@ export default {
           name: 'alt',
           title: 'Alt Text',
           type: 'string',
-          validation: Rule => Rule.required()
-        }
-      ]
-    },
-    {
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    }),
+    defineField({
       name: 'readTime',
       title: 'Read Time (minutes)',
       type: 'number',
       initialValue: 5,
-      validation: Rule => Rule.required().min(1)
-    },
-    {
+      validation: (Rule) => Rule.required().min(1),
+    }),
+    defineField({
       name: 'seo',
       title: 'SEO Settings',
       type: 'object',
@@ -125,7 +127,7 @@ export default {
           title: 'Meta Description',
           type: 'text',
           description: 'Custom meta description (25-160 characters). If empty, excerpt will be used.',
-          validation: Rule => Rule.max(160)
+          validation: (Rule) => Rule.max(160),
         },
         {
           name: 'keywords',
@@ -133,25 +135,25 @@ export default {
           type: 'array',
           of: [{type: 'string'}],
           options: {
-            layout: 'tags'
-          }
-        }
-      ]
-    }
+            layout: 'tags',
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
       title: 'title',
       author: 'author',
       media: 'mainImage',
-      publishedAt: 'publishedAt'
+      publishedAt: 'publishedAt',
     },
     prepare(selection) {
       const {author, publishedAt} = selection
       const date = publishedAt ? new Date(publishedAt).toLocaleDateString() : ''
       return {
         ...selection,
-        subtitle: `${author} • ${date}`
+        subtitle: `${author} • ${date}`,
       }
     },
   },
@@ -159,13 +161,13 @@ export default {
     {
       title: 'Published Date, New',
       name: 'publishedAtDesc',
-      by: [{field: 'publishedAt', direction: 'desc'}]
+      by: [{field: 'publishedAt', direction: 'desc'}],
     },
     {
       title: 'Published Date, Old',
       name: 'publishedAtAsc',
-      by: [{field: 'publishedAt', direction: 'asc'}]
-    }
-  ]
-}
+      by: [{field: 'publishedAt', direction: 'asc'}],
+    },
+  ],
+})
 
