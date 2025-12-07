@@ -1,7 +1,7 @@
 // Blog Configuration
 const BLOG_CONFIG = {
     name: "CloudSlate",
-    description: "Empowering developers and tech enthusiasts with cutting-edge insights, practical tutorials, and innovative solutions in cloud computing, web development, and modern technology.",
+    description: "A clean, secure, and student-friendly platform built for speed, creativity, and effortless browsing.",
     url: "https://cloudslate.pages.dev", // Cloudflare Pages domain
     author: "Muhammad Khuhro",
     
