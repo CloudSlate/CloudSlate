@@ -1,10 +1,13 @@
 {
   "name": "cloudslate-blog",
   "version": "1.0.0",
-  "description": "CloudSlate - A modern, fast, and SEO-optimized tech blog",
+  "description": "CloudSlate - A modern, fast, and SEO-optimized tech blog with Sanity CMS",
   "scripts": {
     "build": "echo 'No build step required - static site ready to deploy'",
-    "deploy": "wrangler pages deploy ."
+    "deploy": "wrangler pages deploy .",
+    "sanity:dev": "cd sanity && npm run dev",
+    "sanity:start": "cd sanity && npm run start",
+    "sanity:deploy": "cd sanity && npm run deploy"
   },
   "keywords": [
     "cloudslate",
@@ -15,11 +18,14 @@
     "web development",
     "static",
     "seo",
-    "cloudflare-pages"
+    "cloudflare-pages",
+    "sanity-cms"
   ],
   "author": "Muhammad Khuhro <info.cloudslate@gmail.com>",
   "license": "MIT",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "@sanity/client": "^6.8.6",
+    "@sanity/image-url": "^1.0.2"
+  }
 }
-

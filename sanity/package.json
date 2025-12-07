@@ -1,0 +1,32 @@
+{
+  "name": "cloudslate-cms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CloudSlate CMS - Sanity Studio",
+  "main": "package.json",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "keywords": [
+    "sanity",
+    "cms",
+    "cloudslate"
+  ],
+  "dependencies": {
+    "@sanity/vision": "^4.20.3",
+    "react": "^19.1",
+    "react-dom": "^19.1",
+    "sanity": "^4.20.3"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^5.0.2",
+    "@types/react": "^19.1",
+    "eslint": "^9.28",
+    "prettier": "^3.5",
+    "typescript": "^5.8"
+  }
+}
+
