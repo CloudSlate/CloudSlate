@@ -5,7 +5,7 @@
 ### 1. Add Your Property
 1. Go to [Google Search Console](https://search.google.com/search-console)
 2. Click "Add Property"
-3. Enter your website URL: `https://cloudslate.com`
+3. Enter your website URL: `https://cloudslate.pages.dev`
 4. Choose verification method
 
 ### 2. Verification Methods
@@ -28,7 +28,7 @@
 
 ### 3. Submit Sitemap
 1. In Search Console, go to "Sitemaps"
-2. Enter: `https://cloudslate.com/sitemap.xml`
+2. Enter: `https://cloudslate.pages.dev/sitemap.xml`
 3. Click "Submit"
 
 ### 4. Monitor Performance
