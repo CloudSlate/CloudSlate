@@ -36,11 +36,12 @@
     <title>Blog Post - CloudSlate</title>
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Using jsdelivr CDN directly to avoid redirect issues -->
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.js"></script>
     <script>
         // Fallback if Tailwind CDN fails
         if (typeof tailwind === 'undefined') {
-            console.warn('Tailwind CDN failed, using fallback');
+            console.warn('Tailwind CDN failed, using CSS fallback');
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css';
@@ -162,9 +163,9 @@
         <!-- AdSense Ad Unit (Top) -->
         <div class="mb-8 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-center">
             <p class="text-xs text-gray-500 mb-2">Advertisement</p>
-            <div id="adsense-inline-top" class="min-h-[100px] flex items-center justify-center">
+            <div id="adsense-inline-top" class="min-h-[100px] w-full flex items-center justify-center">
                 <ins class="adsbygoogle"
-                     style="display:block"
+                     style="display:block; width:100%; min-width:300px;"
                      data-ad-format="autorelaxed"
                      data-ad-client="ca-pub-9866065970678838"
                      data-ad-slot="1763336908"></ins>
@@ -193,9 +194,9 @@
         <!-- AdSense Ad Unit (Bottom) -->
         <div class="mb-8 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-center">
             <p class="text-xs text-gray-500 mb-2">Advertisement</p>
-            <div id="adsense-inline-bottom" class="min-h-[100px] flex items-center justify-center">
+            <div id="adsense-inline-bottom" class="min-h-[100px] w-full flex items-center justify-center">
                 <ins class="adsbygoogle"
-                     style="display:block"
+                     style="display:block; width:100%; min-width:300px;"
                      data-ad-format="autorelaxed"
                      data-ad-client="ca-pub-9866065970678838"
                      data-ad-slot="1763336908"></ins>
@@ -286,17 +287,18 @@
 
     <!-- Scripts -->
     <script src="config.js"></script>
+    <!-- Critical scripts - load immediately -->
     <script src="assets/js/icons.js"></script>
-    <script src="assets/js/sanity-client.js"></script>
-    <script src="assets/js/api-client.js"></script>
-    <script src="assets/js/seo.js"></script>
-    <script src="assets/js/adsense.js"></script>
-    <script src="assets/js/performance.js"></script>
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script src="assets/js/post.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/engagement.js"></script>
+    <script src="assets/js/performance.js"></script>
+    <!-- Defer non-critical scripts for better performance -->
+    <script src="assets/js/sanity-client.js" defer></script>
+    <script src="assets/js/api-client.js" defer></script>
+    <script src="assets/js/post.js" defer></script>
+    <script src="assets/js/seo.js" defer></script>
+    <script src="assets/js/adsense.js" defer></script>
+    <script src="assets/js/engagement.js" defer></script>
+    <script src="assets/js/animations.js" defer></script>
 </body>
 </html>
 

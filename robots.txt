@@ -26,11 +26,16 @@ User-agent: Googlebot
 Allow: /
 Allow: /ads.txt
 Allow: /sitemap.xml
+Allow: /robots.txt
+# Note: External AdSense resources (doubleclick.net, googlesyndication.com) 
+# are controlled by their own robots.txt, not this file
 
 User-agent: Googlebot-Image
 Allow: /
 Allow: /assets/
 Allow: /posts/
+# Allow AdSense tracking images
+Allow: /pagead/
 
 User-agent: Googlebot-Mobile
 Allow: /
@@ -38,6 +43,8 @@ Allow: /
 # Allow Mediapartners-Google (AdSense crawler)
 User-agent: Mediapartners-Google
 Allow: /
+Allow: /ads.txt
+Allow: /sitemap.xml
 
 # Sitemap location
 Sitemap: https://cloudslate.pages.dev/sitemap.xml
