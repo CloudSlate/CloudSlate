@@ -1,58 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://cloudslate.pages.dev/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- About Page -->
   <url>
     <loc>https://cloudslate.pages.dev/about.html</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Contact Page -->
   <url>
     <loc>https://cloudslate.pages.dev/contact.html</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-12-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Blog Post: Getting Started with Web Development -->
   <url>
     <loc>https://cloudslate.pages.dev/post.html?id=getting-started-with-web-development</loc>
     <lastmod>2024-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800</image:loc>
+      <image:title>Getting Started with Web Development in 2024</image:title>
+      <image:caption>A comprehensive guide to starting your journey in web development, covering modern tools, frameworks, and best practices.</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Blog Post: Responsive Design Principles -->
   <url>
     <loc>https://cloudslate.pages.dev/post.html?id=responsive-design-principles</loc>
     <lastmod>2024-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800</image:loc>
+      <image:title>Modern Responsive Design Principles</image:title>
+      <image:caption>Learn the key principles of responsive web design and how to create websites that work beautifully on all devices.</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Blog Post: SEO Optimization Guide -->
   <url>
     <loc>https://cloudslate.pages.dev/post.html?id=seo-optimization-guide</loc>
     <lastmod>2024-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1432888622747-4eb9a8f2d523?w=800</image:loc>
+      <image:title>Complete SEO Optimization Guide for Bloggers</image:title>
+      <image:caption>Master SEO techniques to improve your blog's visibility and attract more organic traffic.</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Blog Post: JavaScript ES6 Features -->
   <url>
     <loc>https://cloudslate.pages.dev/post.html?id=javascript-es6-features</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800</image:loc>
+      <image:title>Essential ES6+ JavaScript Features Every Developer Should Know</image:title>
+      <image:caption>Explore the most important ES6 and modern JavaScript features that will make you a better developer.</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Blog Post: CSS Grid vs Flexbox -->
   <url>
     <loc>https://cloudslate.pages.dev/post.html?id=css-grid-vs-flexbox</loc>
     <lastmod>2023-12-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800</image:loc>
+      <image:title>CSS Grid vs Flexbox: When to Use Each</image:title>
+      <image:caption>Understanding when to use CSS Grid and when to use Flexbox can make your layouts more efficient and maintainable.</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Blog Post: Web Performance Tips -->
   <url>
     <loc>https://cloudslate.pages.dev/post.html?id=web-performance-tips</loc>
     <lastmod>2023-12-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800</image:loc>
+      <image:title>10 Web Performance Tips for Faster Websites</image:title>
+      <image:caption>Learn practical tips to improve your website's performance and provide a better user experience.</image:caption>
+    </image:image>
   </url>
+  
 </urlset>
-
