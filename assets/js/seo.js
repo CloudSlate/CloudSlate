@@ -35,8 +35,15 @@ class SEOOptimizer {
         // Update title
         document.title = `${this.config.name} - ${this.config.description.substring(0, 50)}`;
         
-        // Update meta description
-        this.setMetaTag('description', this.config.description);
+        // Update meta description (25-160 characters for SEO)
+        let description = this.config.description;
+        if (description.length > 160) {
+            description = description.substring(0, 157) + '...';
+        }
+        if (description.length < 25) {
+            description = `${description} - Modern tech blog and tutorials.`;
+        }
+        this.setMetaTag('description', description);
         
         // Update keywords
         const keywords = this.extractKeywords();
@@ -73,8 +80,15 @@ class SEOOptimizer {
         const title = `${post.title} - ${this.config.name}`;
         document.title = title.length > 60 ? title.substring(0, 57) + '...' : title;
         
-        // Update meta description (max 160 characters)
-        const description = post.excerpt.length > 160 ? post.excerpt.substring(0, 157) + '...' : post.excerpt;
+        // Update meta description (25-160 characters for SEO)
+        let description = post.excerpt || post.title;
+        if (description.length < 25) {
+            // If too short, add more context
+            description = `${description} - ${this.config.name} blog post about ${post.category}.`;
+        }
+        if (description.length > 160) {
+            description = description.substring(0, 157) + '...';
+        }
         this.setMetaTag('description', description);
         
         // Update keywords
