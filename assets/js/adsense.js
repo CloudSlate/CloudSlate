@@ -29,7 +29,7 @@ class AdSenseManager {
         script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${this.config.publisherId}`;
         script.crossOrigin = 'anonymous';
         script.onerror = () => {
-            console.warn('AdSense script failed to load');
+            // AdSense script failed to load - will retry or use fallback
         };
         document.head.appendChild(script);
     }
@@ -98,7 +98,7 @@ class AdSenseManager {
         try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {
-            console.warn('AdSense push failed:', e);
+            // AdSense push failed - will retry
         }
     }
 

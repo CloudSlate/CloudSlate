@@ -184,7 +184,7 @@ async function getPosts() {
         try {
             return await AdminAPI.getPosts();
         } catch (error) {
-            console.error('API failed, using localStorage:', error);
+            // API failed, using localStorage fallback
         }
     }
     
@@ -203,7 +203,7 @@ async function savePosts(posts) {
             await AdminAPI.savePosts(posts);
             return;
         } catch (error) {
-            console.error('API failed, using localStorage:', error);
+            // API failed, using localStorage fallback
         }
     }
     

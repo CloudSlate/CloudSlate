@@ -32,7 +32,7 @@ async function apiRequest(endpoint, method = 'GET', data = null) {
         }
         return await response.json();
     } catch (error) {
-        console.error('API request failed:', error);
+        // API request failed - will use fallback
         throw error;
     }
 }

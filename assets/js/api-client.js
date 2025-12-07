@@ -23,7 +23,7 @@ async function fetchPostsFromAPI() {
         
         return posts;
     } catch (error) {
-        console.error('Failed to fetch posts from API:', error);
+        // Silently handle error - fallback system will handle it
         throw error;
     }
 }
@@ -48,7 +48,7 @@ async function getBlogPosts() {
             return posts;
         }
     } catch (error) {
-        console.log('API unavailable, using fallback:', error);
+        // Fallback to alternative data source
     }
     
     // Fallback to localStorage
@@ -60,7 +60,7 @@ async function getBlogPosts() {
                 return parsed;
             }
         } catch (e) {
-            console.error('Error parsing saved posts:', e);
+            // Silently handle parsing error
         }
     }
     

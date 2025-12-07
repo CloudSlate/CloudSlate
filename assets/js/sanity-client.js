@@ -99,7 +99,7 @@ async function fetchSanityData(encodedQuery) {
         const result = await response.json();
         return result.result || [];
     } catch (error) {
-        console.error('Failed to fetch from Sanity:', error);
+        // Silently handle error - fallback system will handle it
         throw error;
     }
 }
@@ -188,7 +188,7 @@ async function getSanityPosts() {
 
         return transformedPosts;
     } catch (error) {
-        console.error('Error fetching posts from Sanity:', error);
+        // Silently handle error - fallback system will handle it
         throw error;
     }
 }
@@ -230,7 +230,7 @@ async function getBlogPosts() {
             return posts;
         }
     } catch (error) {
-        console.log('Sanity unavailable, using fallback:', error);
+        // Fallback to alternative data source
     }
     
     // Fallback to Cloudflare Worker API

@@ -119,7 +119,7 @@ const Icons = {
     get: function(iconName, className = '') {
         const icon = this[iconName];
         if (!icon) {
-            console.warn(`Icon "${iconName}" not found`);
+            // Icon not found - using fallback
             return '';
         }
         return icon.replace('class="icon', `class="icon ${className}`);
