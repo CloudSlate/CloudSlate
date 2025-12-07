@@ -36,18 +36,8 @@
     <title>Blog Post - CloudSlate</title>
     
     <!-- Tailwind CSS -->
-    <!-- Using jsdelivr CDN directly to avoid redirect issues -->
-    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.js"></script>
-    <script>
-        // Fallback if Tailwind CDN fails
-        if (typeof tailwind === 'undefined') {
-            console.warn('Tailwind CDN failed, using CSS fallback');
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css';
-            document.head.appendChild(link);
-        }
-    </script>
+    <!-- Using official Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Preconnect to external domains for faster loading -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
