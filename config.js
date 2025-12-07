@@ -26,10 +26,10 @@ const BLOG_CONFIG = {
         enabled: true, // Set to true when you have AdSense approved
         publisherId: "ca-pub-9866065970678838", // Your AdSense Publisher ID
         adUnits: {
-            top: "1234567890", // Ad unit ID for top banner
-            inlineTop: "1234567891", // Ad unit ID for inline top
-            inlineBottom: "1234567892", // Ad unit ID for inline bottom
-            sidebar: "1234567893" // Ad unit ID for sidebar (if needed)
+            top: "1763336908", // Ad unit ID for top banner
+            inlineTop: "1763336908", // Ad unit ID for inline top
+            inlineBottom: "1763336908", // Ad unit ID for inline bottom
+            sidebar: "1763336908" // Ad unit ID for sidebar (if needed)
         }
     },
     
