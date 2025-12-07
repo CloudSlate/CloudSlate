@@ -4,7 +4,7 @@ Now that dummy posts are removed, here's how to create high-quality, realistic b
 
 ## 🎯 Access Your Sanity Studio
 
-1. Go to: **https://cloudslate-cms.sanity.studio**
+1. Go to: **https://cloudslate.sanity.studio**
 2. Login with your Sanity account
 3. You'll see the "CloudSlate CMS" interface
 
@@ -249,5 +249,5 @@ Before publishing, ensure:
 
 ---
 
-**Ready to create?** Go to https://cloudslate-cms.sanity.studio and start writing your first realistic blog post! 🎉
+**Ready to create?** Go to https://cloudslate.sanity.studio and start writing your first realistic blog post! 🎉
 

@@ -2,7 +2,7 @@
 
 ## ✅ Current Status
 
-- **Sanity Studio**: https://cloudslate-cms.sanity.studio
+- **Sanity Studio**: https://cloudslate.sanity.studio
 - **Project ID**: `pdd2xrq9`
 - **Dataset**: `production`
 - **Frontend Client**: Configured and ready
@@ -11,7 +11,7 @@
 
 ### Step 1: Verify Studio Access
 
-1. Visit: https://cloudslate-cms.sanity.studio
+1. Visit: https://cloudslate.sanity.studio
 2. Login with your Sanity account
 3. You should see the "CloudSlate CMS" interface
 
@@ -124,7 +124,7 @@ After publishing your first post:
 ### Studio Not Loading?
 
 1. **Check login**: Make sure you're logged in
-2. **Check URL**: https://cloudslate-cms.sanity.studio
+2. **Check URL**: https://cloudslate.sanity.studio
 3. **Check permissions**: Verify you have access to the project
 
 ### Frontend Errors?
@@ -135,7 +135,7 @@ After publishing your first post:
 
 ## 📚 Resources
 
-- **Sanity Studio**: https://cloudslate-cms.sanity.studio
+- **Sanity Studio**: https://cloudslate.sanity.studio
 - **Sanity Docs**: https://www.sanity.io/docs
 - **GROQ Query**: https://www.sanity.io/docs/groq
 - **Your Website**: https://cloudslate.pages.dev

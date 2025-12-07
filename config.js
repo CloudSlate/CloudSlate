@@ -50,6 +50,6 @@ const BLOG_CONFIG = {
 // Blog Posts Data
 // This array is kept empty as a fallback only
 // All blog posts are now managed through Sanity CMS
-// Visit: https://cloudslate-cms.sanity.studio to create and manage posts
+// Visit: https://cloudslate.sanity.studio to create and manage posts
 const BLOG_POSTS = [];
 

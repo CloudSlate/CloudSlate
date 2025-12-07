@@ -76,7 +76,7 @@ Or from project root:
 npm run sanity:deploy
 ```
 
-This gives you a URL like: `https://cloudslate-cms.sanity.studio`
+This gives you a URL like: `https://cloudslate.sanity.studio`
 
 ## 📝 Creating Your First Post
 
