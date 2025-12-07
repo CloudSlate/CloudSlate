@@ -402,7 +402,7 @@ class EngagementSystem {
                 ${posts.map(post => `
                     <article class="recommendation-card fade-in">
                         <a href="post.html?id=${post.id}">
-                            <img src="${post.image}" alt="${post.title}">
+                            <img src="${post.image}" alt="${post.title}" loading="lazy" decoding="async">
                             <div class="recommendation-content">
                                 <h3>${post.title}</h3>
                                 <p>${post.excerpt.substring(0, 100)}...</p>

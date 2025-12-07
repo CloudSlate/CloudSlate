@@ -177,52 +177,54 @@ function initImageLoading() {
 // ============================================
 
 let parallaxRaf = null;
+let isParallaxEnabled = true;
 
 function initParallaxEffects() {
-    const parallaxElements = document.querySelectorAll('.parallax-img, article img, .parallax');
-    
-    if (parallaxElements.length === 0) return;
-
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        
-        parallaxElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementTop = rect.top + scrolled;
-            const elementHeight = rect.height;
-            const elementCenter = elementTop + elementHeight / 2;
-            
-            // Only apply parallax if element is in viewport
-            if (scrolled + windowHeight > elementTop && scrolled < elementTop + elementHeight) {
-                const speed = element.dataset.parallaxSpeed || 0.15;
-                const distance = scrolled - elementTop;
-                const yPos = distance * speed;
-                
-                // Apply parallax with smooth easing
-                element.style.transform = `translateY(${yPos}px)`;
-                element.style.willChange = 'transform';
-            } else {
-                element.style.willChange = 'auto';
-            }
-        });
-        
-        parallaxRaf = requestAnimationFrame(updateParallax);
+    // Disable parallax on mobile/low-end devices for better performance
+    if (window.deviceInfo && (window.deviceInfo.isMobile || window.deviceInfo.isLowEnd)) {
+        isParallaxEnabled = false;
+        return;
     }
     
-    // Use requestAnimationFrame for smooth performance
-    updateParallax();
+    const parallaxElements = document.querySelectorAll('.parallax-img, article img, .parallax');
     
-    // Clean up on scroll end
-    let scrollTimeout;
-    window.addEventListener('scroll', function() {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            if (parallaxRaf) {
-                cancelAnimationFrame(parallaxRaf);
-            }
-        }, 150);
-    }, { passive: true });
+    if (parallaxElements.length === 0 || !isParallaxEnabled) return;
+
+    let ticking = false;
+    
+    function updateParallax() {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                
+                parallaxElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const elementTop = rect.top + scrolled;
+                    const elementHeight = rect.height;
+                    
+                    // Only apply parallax if element is in viewport
+                    if (scrolled + windowHeight > elementTop && scrolled < elementTop + elementHeight) {
+                        const speed = element.dataset.parallaxSpeed || 0.1;
+                        const distance = scrolled - elementTop;
+                        const yPos = distance * speed;
+                        
+                        // Use translate3d for GPU acceleration
+                        element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                        element.style.willChange = 'transform';
+                    } else {
+                        element.style.willChange = 'auto';
+                    }
+                });
+                
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    // Throttled scroll handler
+    window.addEventListener('scroll', updateParallax, { passive: true });
 }
 
 // ============================================

@@ -166,9 +166,27 @@
     overflow: hidden;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling with performance optimization */
 html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Fix scroll performance */
+body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Hardware acceleration for smooth scrolling */
+main,
+section,
+.scroll-container {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: scroll-position;
 }
 
 /* Focus styles for accessibility */

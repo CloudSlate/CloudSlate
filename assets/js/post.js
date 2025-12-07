@@ -217,7 +217,7 @@ async function loadRelatedPosts(currentPost) {
     relatedContainer.innerHTML = relatedPosts.map(post => `
         <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden">
             <a href="post.html?id=${post.id}">
-                <img src="${post.image}" alt="${post.title}" class="w-full h-40 object-cover">
+                <img src="${post.image}" alt="${post.title}" class="w-full h-40 object-cover" loading="lazy" decoding="async">
             </a>
             <div class="p-4">
                 <a href="post.html?id=${post.id}">
