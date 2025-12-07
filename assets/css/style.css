@@ -593,54 +593,6 @@ article:hover,
 }
 
 /* Card image zoom effect */
-/* Fixed background images for post cards - stays stationary while scrolling */
-.post-image-fixed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
-    will-change: transform;
-    /* Fixed attachment makes image stay in place during scroll */
-    background-attachment: fixed;
-}
-
-/* Overlay image for better browser compatibility and accessibility */
-.post-image-overlay {
-    position: relative;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-/* Show overlay on hover for better UX */
-article:hover .post-image-overlay {
-    opacity: 0.3;
-}
-
-/* Ensure proper stacking and overflow */
-article a {
-    position: relative;
-    display: block;
-    overflow: hidden;
-}
-
-/* Mobile optimization - disable fixed attachment on small screens */
-@media (max-width: 768px) {
-    .post-image-fixed {
-        background-attachment: scroll;
-    }
-    
-    .post-image-overlay {
-        opacity: 1;
-    }
-}
-
 article img {
     transition: transform 0.5s ease, filter 0.5s ease;
 }

@@ -118,9 +118,8 @@ function createPostCard(post) {
     
     return `
         <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden">
-            <a href="post.html?id=${post.id}" class="block relative h-48 overflow-hidden">
-                <div class="post-image-fixed" style="background-image: url('${post.image}');"></div>
-                <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover post-image-overlay" loading="lazy" decoding="async">
+            <a href="post.html?id=${post.id}">
+                <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover" loading="lazy" decoding="async">
             </a>
             <div class="p-6">
                 <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
