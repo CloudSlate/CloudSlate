@@ -164,24 +164,32 @@ function setupSocialSharing(post) {
         <a href="https://twitter.com/intent/tweet?url=${url}&text=${title}" 
            target="_blank" 
            rel="noopener noreferrer"
-           class="icon-button px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center gap-2">
-            <span class="icon-wrapper icon-md icon-twitter">${twitterIcon}</span> Twitter
+           class="group px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 font-semibold">
+            <span class="text-xl">🐦</span>
+            <span>Twitter</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=${url}" 
            target="_blank" 
            rel="noopener noreferrer"
-           class="icon-button px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center gap-2">
-            <span class="icon-wrapper icon-md icon-facebook">${facebookIcon}</span> Facebook
+           class="group px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 font-semibold">
+            <span class="text-xl">📘</span>
+            <span>Facebook</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
         <a href="https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}&summary=${description}" 
            target="_blank" 
            rel="noopener noreferrer"
-           class="icon-button px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition flex items-center gap-2">
-            <span class="icon-wrapper icon-md icon-linkedin">${linkedinIcon}</span> LinkedIn
+           class="group px-6 py-3 bg-blue-700 text-white rounded-xl hover:bg-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 font-semibold">
+            <span class="text-xl">💼</span>
+            <span>LinkedIn</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
         <button onclick="copyToClipboard('${BLOG_CONFIG.url}/post.html?id=${post.id}')" 
-                class="icon-button px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition flex items-center gap-2">
-            <span class="icon-wrapper icon-md icon-copy">${copyIcon}</span> Copy Link
+                class="group px-6 py-3 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2 font-semibold">
+            <span class="text-xl">📋</span>
+            <span>Copy Link</span>
+            <span class="group-hover:rotate-90 transition-transform">↻</span>
         </button>
     `;
 }

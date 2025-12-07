@@ -39,12 +39,49 @@ async function loadPosts() {
     const allPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
     postsContainer.innerHTML = allPosts.map(post => createPostCard(post)).join('');
     
+    // Update stats
+    updateStats(posts, featuredPosts);
+    
     // Re-animate newly loaded content
     if (window.visualEffects && window.visualEffects.reanimateContent) {
         setTimeout(() => {
             window.visualEffects.reanimateContent();
         }, 100);
     }
+}
+
+// Update homepage stats
+function updateStats(posts, featuredPosts) {
+    const statPosts = document.getElementById('stat-posts');
+    const statCategories = document.getElementById('stat-categories');
+    const statFeatured = document.getElementById('stat-featured');
+    
+    if (statPosts) {
+        animateValue(statPosts, 0, posts.length, 1000);
+    }
+    if (statCategories) {
+        const categories = [...new Set(posts.map(p => p.category))];
+        animateValue(statCategories, 0, categories.length, 1000);
+    }
+    if (statFeatured) {
+        animateValue(statFeatured, 0, featuredPosts.length, 1000);
+    }
+}
+
+// Animate number counting
+function animateValue(element, start, end, duration) {
+    if (!element) return;
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        element.textContent = current;
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
 }
 
 // Create post card HTML
